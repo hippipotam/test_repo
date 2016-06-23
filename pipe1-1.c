@@ -71,7 +71,7 @@ int main(int atgc, char *argv[])
 		
 	int num = cnt-1;
 	char *cmd = strtok(bufp[num], " ");
-	char *args = strtok(0, " ");
+	char *args = strtok(0, "\n");
 	if (args) 
 		execlp(cmd, cmd, args, NULL);	
 	else 	execlp(cmd, cmd, NULL);	
