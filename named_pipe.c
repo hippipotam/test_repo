@@ -4,32 +4,35 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#define FIFO_IN_FILE	"/tmp/in.fifo"
+#define FIFO_OUT_FILE	"/tmp/out.fifo"
+
 int main(int argc, char* argv[])
 {
 	int fd_fifo_in, fd_fifo_out;
 	char buf[512];
 
-	unlink("/tmp/in.fifo");
-	unlink("/tmp/out.fifo");
+	unlink(FIFO_IN_FILE);
+	unlink(FIFO_OUT_FILE);
 
-	if (mkfifo("/tmp/in.fifo", 0666) == -1) {
+	if (mkfifo(FIFO_IN_FILE, 0666) == -1) {
 		perror("in.fifo");
 		return -1;
 	} else printf("Create in.fifo\n");
 
-	if (mkfifo("/tmp/out.fifo", 0666) == -1) {
+	if (mkfifo(FIFO_OUT_FILE, 0666) == -1) {
 		perror("out.fifo");
 		return -1;
 	} else printf("Create out.fifo\n");	
 	
 
-	if ((fd_fifo_in = open("/tmp/in.fifo", O_RDWR | O_NONBLOCK)) == -1) {
+	if ((fd_fifo_in = open(FIFO_IN_FILE, O_RDWR | O_NONBLOCK)) == -1) {
 		perror("open in fifo");
 		fflush(stdout);
 		return -1;
 	} else printf("Open in.fifo\n");
 
-	if ((fd_fifo_out = open("/tmp/out.fifo", O_RDWR )) == -1) {
+	if ((fd_fifo_out = open(FIFO_OUT_FILE, O_RDWR )) == -1) {
 		perror("open in fifo");
 		return -1;
 	} else printf("Open out.fifo\n");
