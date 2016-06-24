@@ -1,0 +1,37 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+        "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+
+<node name="/org/example/chat">
+    <interface name="org.example.keyboard">
+        <signal name="message1">
+            <arg name="nickname" type="s" direction="out"/>
+            <arg name="text" type="s" direction="out"/>
+        </signal>
+        <signal name="action1">
+            <arg name="nickname" type="s" direction="out"/>
+            <arg name="text" type="s" direction="out"/>
+        </signal>
+    </interface>
+<!--    <interface name="org.example.chat">
+        <signal name="message">
+            <arg name="nickname" type="s" direction="out"/>
+            <arg name="text" type="s" direction="out"/>
+        </signal>
+        <signal name="action">
+            <arg name="nickname" type="s" direction="out"/>
+            <arg name="text" type="s" direction="out"/>
+        </signal>
+    </interface>-->
+</node>
+<!--<node name="/org/example/keyboard">
+    <interface name="org.example.keyboard">
+        <signal name="message">
+            <arg name="nickname" type="s" direction="out"/>
+            <arg name="text" type="s" direction="out"/>
+        </signal>
+        <signal name="action">
+            <arg name="nickname" type="s" direction="out"/>
+            <arg name="text" type="s" direction="out"/>
+        </signal>
+    </interface>
+</node>-->
