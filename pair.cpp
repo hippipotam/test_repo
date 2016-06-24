@@ -119,7 +119,8 @@ void parent(int sock)
 	int fd;
 
 	fd = 1;
-	size = sock_fd_write(sock, "1", 1, 1);
+	char *str = (char *)"1";
+	size = sock_fd_write(sock, str, 1, fd);
 	printf("wrote %d\n", (int)size);
 }
 
