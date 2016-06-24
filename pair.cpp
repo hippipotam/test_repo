@@ -122,6 +122,7 @@ void parent(int sock)
 	char *str = (char *)"1";
 	size = sock_fd_write(sock, str, 1, fd);
 	printf("wrote %d\n", (int)size);
+	pause();
 }
 
 int main(int argc, char* argv[])
