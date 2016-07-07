@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #define FNAME	"main.pid"
 
@@ -87,7 +88,7 @@ int main(int argc, char*argv[])
 	pthread_spin_lock(&spinl);
 
 	//pthread_rwlock_init(&rdlock, NULL);
-	pthread_rwlock_init(&rwlock, PTHREAD_PROCESS_PRIVATE);
+	pthread_rwlock_init(&rwlock, NULL); //PTHREAD_PROCESS_PRIVATE);
 	//pthread_rwlock_rdlock(&rdlock);
 	pthread_rwlock_wrlock(&rwlock);
 
