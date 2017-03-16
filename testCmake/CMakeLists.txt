@@ -20,13 +20,6 @@ if (NOT CONFIGURED_ONCE)
 endif()
 
 
-if ("${SDL2_LIBRARY_PATH}")
-	set_property(TARGET gtest APPEND_STRING PROPERTY COMPILE_FLAGS " -w")
-endif()
-
-
-
-
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 add_subdirectory(ToDoCore)
